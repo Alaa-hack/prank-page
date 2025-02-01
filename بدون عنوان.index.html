@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحذير أمني!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: black;
+            color: red;
+            text-align: center;
+            padding-top: 50px;
+            margin: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3rem;
+            animation: blink 1s infinite;
+        }
+        p {
+            font-size: 1.5rem;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .matrix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 255, 0, 0.1) 2px,
+                rgba(0, 255, 0, 0.1) 4px
+            );
+            z-index: -1;
+            animation: matrix 10s linear infinite;
+        }
+        @keyframes matrix {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(100%); }
+        }
+        .hidden {
+            display: none;
+            color: white;
+            font-size: 2rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="matrix"></div>
+    <h1>تحذير: تم اكتشاف اختراق!</h1>
+    <p>جاري تحليل النظام...</p>
+    <div id="message" class="hidden">
+        <p>هاها! لقد كنت أمزح معك! 😄</p>
+        <p>أنت صديقي المفضل!</p>
+    </div>
+
+    <script>
+        // مؤقت لبدء التأثيرات
+        setTimeout(function() {
+            document.querySelector('h1').textContent = "جاري سرقة البيانات...";
+            document.querySelector('p').textContent = "20% مكتمل...";
+        }, 3000);
+
+        setTimeout(function() {
+            document.querySelector('h1').textContent = "جاري تثبيت برمجيات خبيثة...";
+            document.querySelector('p').textContent = "50% مكتمل...";
+        }, 6000);
+
+        setTimeout(function() {
+            document.querySelector('h1').textContent = "جاري التحكم في الجهاز...";
+            document.querySelector('p').textContent = "80% مكتمل...";
+        }, 9000);
+
+        setTimeout(function() {
+            document.querySelector('h1').style.color = "white";
+            document.querySelector('h1').textContent = "تم الاختراق بنجاح!";
+            document.querySelector('p').textContent = "جهازك الآن تحت السيطرة!";
+            document.getElementById('message').style.display = "block";
+        }, 12000);
+    </script>
+</body>
+</html>
